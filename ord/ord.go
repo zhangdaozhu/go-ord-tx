@@ -297,7 +297,7 @@ func (tool *InscriptionTool) BuildEmptyRevealTx(singleRevealTxOnly bool, destina
 	} else {
 		revealTx = make([]*wire.MsgTx, total)
 		for i := 0; i < total; i++ {
-			tx := wire.NewMsgTx(wire.TxVersion)
+			tx := wire.NewMsgTx(2)
 			err := addTxInTxOutIntoRevealTx(tx, i)
 			if err != nil {
 				return 0, err
@@ -357,7 +357,7 @@ func (tool *InscriptionTool) getTxOutByOutPoint(outPoint *wire.OutPoint) (*wire.
 
 func (tool *InscriptionTool) buildCommitTx(commitTxOutPointList []*wire.OutPoint, totalRevealPrevOutput, commitFeeRate int64) error {
 	totalSenderAmount := btcutil.Amount(0)
-	tx := wire.NewMsgTx(wire.TxVersion)
+	tx := wire.NewMsgTx(2)
 	var changePkScript *[]byte
 	for i := range commitTxOutPointList {
 		txOut, err := tool.getTxOutByOutPoint(commitTxOutPointList[i])
