@@ -67,7 +67,7 @@ type InscriptionTool struct {
 }
 
 const (
-	defaultSequenceNum    = wire.MaxTxInSequenceNum - 10
+	defaultSequenceNum    = 0
 	defaultRevealOutValue = int64(500) // 500 sat, ord default 10000
 
 	MaxStandardTxWeight = blockchain.MaxBlockWeight / 10
